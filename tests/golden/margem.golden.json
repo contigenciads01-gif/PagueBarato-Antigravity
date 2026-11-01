@@ -1,0 +1,23 @@
+{
+  "_comentario": "Golden tests de precificação e margem no Mercado Livre. Valores null aguardam conferência externa.",
+  "casos": [
+    {
+      "id": "caso_1_abaixo_79_com_tarifa_fixa",
+      "descricao": "Item pequeno com preço abaixo de R$ 79 e incidência de tarifa fixa",
+      "entrada": null,
+      "esperado": null
+    },
+    {
+      "id": "caso_2_acima_79_com_frete_gratis",
+      "descricao": "Item com preço acima de R$ 79 com frete obrigatório por conta do vendedor",
+      "entrada": null,
+      "esperado": null
+    },
+    {
+      "id": "caso_3_sensibilidade_cambio",
+      "descricao": "Impacto na margem final frente a uma oscilação cambial de 5%",
+      "entrada": null,
+      "esperado": null
+    }
+  ]
+}

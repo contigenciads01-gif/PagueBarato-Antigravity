@@ -1,0 +1,23 @@
+{
+  "_comentario": "Golden tests para conferência com o contador. Valores null indicam caso pendente de aprovação externa.",
+  "casos": [
+    {
+      "id": "caso_1_eletronico_aereo",
+      "descricao": "Fita LED RGB 5m via aérea com alíquotas reais de Curitiba/PR",
+      "entrada": null,
+      "esperado": null
+    },
+    {
+      "id": "caso_2_utilidade_maritima",
+      "descricao": "Lote de garrafas térmicas via marítima com incidência de AFRMM",
+      "entrada": null,
+      "esperado": null
+    },
+    {
+      "id": "caso_3_remessa_pf",
+      "descricao": "Importação individual dentro do limite da Remessa Conforme",
+      "entrada": null,
+      "esperado": null
+    }
+  ]
+}

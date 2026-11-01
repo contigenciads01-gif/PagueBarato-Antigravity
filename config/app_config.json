@@ -1,0 +1,40 @@
+{
+  "_comentario": "Configurações gerais da aplicação. Câmbio e parâmetros operacionais.",
+  "_instrucao": "Preencher cambio_cny_brl e cambio_usd_brl com valores atualizados da fonte oficial (ex: PTAX do Bacen).",
+
+  "cambio_cny_brl": { "valor": null, "data": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "cambio_usd_brl": { "valor": null, "data": null, "fonte": null, "status": "A_CONFIRMAR" },
+
+  "iof_pagamento_exterior": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "spread_cambial": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+
+  "arredondamento_impostos": {
+    "_descricao": "ROUND_HALF_UP a centavos ao apurar cada tributo. Decisão pendente de confirmação com o contador.",
+    "metodo": "ROUND_HALF_UP",
+    "casas_decimais": 2,
+    "status": "A_CONFIRMAR"
+  },
+
+  "modalidade_radar": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "limite_modalidade_usd": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "alerta_cambio_dias": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+
+  "fator_peso_cubico": {
+    "_descricao": "Divisor para cálculo do peso cúbico: comprimento × largura × altura ÷ fator",
+    "valor": null,
+    "status": "A_CONFIRMAR"
+  },
+
+  "limite_ia_mensal_usd": { "valor": null, "status": "A_CONFIRMAR" },
+
+  "margem_minima_alerta": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "passos_sensibilidade": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "preco_final_comercial": {
+    "_descricao": "Regra de arredondamento comercial do preço final (ex: terminar em ,90)",
+    "ativo": false,
+    "centavos_alvo": null,
+    "status": "A_CONFIRMAR"
+  },
+  "alerta_fronteira_faixa_reais": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+  "alerta_coleta_antiga_dias": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" }
+}

@@ -1,0 +1,32 @@
+{
+  "_comentario": "Configuração de tarifas do Mercado Livre e parâmetros de frete. Todos os valores são null/A_CONFIRMAR.",
+  "_instrucao": "Preencher com as tarifas vigentes do ML. Nunca hardcodar no código.",
+
+  "comissao_ml": {
+    "_descricao": "Comissão do Mercado Livre por categoria × tipo de anúncio (percentual)",
+    "_instrucao": "Lista de objetos { categoria, tipo_anuncio, percentual: { valor, vigencia_inicio, fonte, status } }",
+    "itens": []
+  },
+
+  "tarifa_fixa": {
+    "_descricao": "Tarifa fixa por faixa de preço do produto",
+    "_instrucao": "Lista de objetos { de, ate, valor: { valor, vigencia_inicio, fonte, status } }",
+    "itens": []
+  },
+
+  "frete_vendedor": {
+    "_descricao": "Custo de frete para o vendedor por modalidade logística × faixa de peso × faixa de preço",
+    "_instrucao": "Lista de objetos { logistica, faixa_peso_min_kg, faixa_peso_max_kg, faixa_preco_min, faixa_preco_max, valor: { valor, vigencia_inicio, fonte, status } }",
+    "itens": []
+  },
+
+  "custo_full": {
+    "_descricao": "Custos de armazenagem e envio pelo Mercado Livre Full (quando aplicável)",
+    "armazenagem_mensal_por_unidade": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+    "custo_envio_por_unidade": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" }
+  },
+
+  "parametros_frete": {
+    "frete_gratis_threshold_brl": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "_comentario": "Configuração de impostos de importação. Todos os valores são null/A_CONFIRMAR até confirmação do contador.",
+  "_instrucao": "Preencher cada 'valor', 'vigencia_inicio' e 'fonte'. Mudar 'status' para CONFIRMADO após verificação.",
+
+  "regimes": {
+    "IMPORTACAO_PJ_DESPACHO": {
+      "_descricao": "Regime principal — importação por PJ com despacho aduaneiro para revenda",
+      "tributos": [
+        {
+          "codigo": "II",
+          "rotulo": "Imposto de Importação",
+          "aliquota": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "base": ["valor_aduaneiro"],
+          "por_dentro": false,
+          "ordem": 1,
+          "credito_recuperavel": { "sim_nao": false, "depende_regime": false }
+        },
+        {
+          "codigo": "IPI",
+          "rotulo": "Imposto sobre Produtos Industrializados",
+          "aliquota": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "base": ["valor_aduaneiro", "ii"],
+          "por_dentro": false,
+          "ordem": 2,
+          "credito_recuperavel": { "sim_nao": null, "depende_regime": true }
+        },
+        {
+          "codigo": "PIS_IMPORTACAO",
+          "rotulo": "PIS-Importação",
+          "aliquota": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "base": ["valor_aduaneiro"],
+          "por_dentro": false,
+          "ordem": 3,
+          "credito_recuperavel": { "sim_nao": null, "depende_regime": true }
+        },
+        {
+          "codigo": "COFINS_IMPORTACAO",
+          "rotulo": "COFINS-Importação",
+          "aliquota": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "base": ["valor_aduaneiro"],
+          "por_dentro": false,
+          "ordem": 4,
+          "credito_recuperavel": { "sim_nao": null, "depende_regime": true }
+        },
+        {
+          "codigo": "ICMS_IMPORTACAO",
+          "rotulo": "ICMS na Importação (PR)",
+          "aliquota": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "reducao_base_percentual": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "beneficio": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "base": ["valor_aduaneiro", "ii", "ipi", "pis_importacao", "cofins_importacao", "despesas_aduaneiras"],
+          "por_dentro": true,
+          "ordem": 5,
+          "credito_recuperavel": { "sim_nao": null, "depende_regime": true }
+        },
+        {
+          "codigo": "AFRMM",
+          "rotulo": "Adicional ao Frete para Renovação da Marinha Mercante",
+          "aliquota": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "base": ["frete_internacional"],
+          "por_dentro": false,
+          "ordem": 6,
+          "apenas_via": "maritima",
+          "credito_recuperavel": { "sim_nao": false, "depende_regime": false }
+        },
+        {
+          "codigo": "TAXA_SISCOMEX",
+          "rotulo": "Taxa Siscomex",
+          "valor_fixo": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+          "por_registro": true,
+          "base": [],
+          "por_dentro": false,
+          "ordem": 7,
+          "credito_recuperavel": { "sim_nao": false, "depende_regime": false }
+        }
+      ]
+    },
+
+    "REMESSA_PF": {
+      "_descricao": "Regime de referência — pessoa física via remessa conforme. NÃO usar para revenda sem validação do contador.",
+      "_aviso": "Cenário de pessoa física. Não usar para revenda sem validação do contador.",
+      "limite_usd": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+      "aliquota_ii_ate_limite": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+      "aliquota_ii_acima_limite": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+      "desconto_usd_sobre_ii": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+      "aliquota_icms": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" }
+    }
+  },
+
+  "venda": {
+    "regime_tributario": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" },
+    "imposto_sobre_venda_percentual_efetivo": { "valor": null, "vigencia_inicio": null, "fonte": null, "status": "A_CONFIRMAR" }
+  }
+}
