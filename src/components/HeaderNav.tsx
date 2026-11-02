@@ -18,6 +18,9 @@ export function HeaderNav({ pendenciasCount }: { pendenciasCount: number }) {
             <Link href="/calculadora" className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-900 transition-colors">
               Calculadora
             </Link>
+            <Link href="/quadro" className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-900 transition-colors">
+              Quadro Visual
+            </Link>
             <Link href="/configuracoes" className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-900 transition-colors flex items-center gap-2">
               Configurações
               {pendenciasCount > 0 && (

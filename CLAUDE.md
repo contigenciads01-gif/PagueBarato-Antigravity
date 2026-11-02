@@ -35,7 +35,7 @@ Alíquotas fiscais e taxas de marketplace são dinâmicas e editáveis via arqui
 - [x] **Parte 3**: Motor de Custos e Impostos de Importação (Cascata de tributos, ICMS por dentro, cenários, snapshot de auditoria)
 - [x] **Parte 4**: Motor de Margem e Preço (Modos A/B/C/D/E, resolução de faixas circulares, sensibilidade, obterPrecoSugerido)
 - [x] **Parte 5**: Telas Centrais (Visão Geral, Produtos, Calculadora 3 Colunas, Configurações com Backup Atômico)
-- [ ] **Parte 6**: Quadro de Comparação (Canvas visual, Konva.js, exportação criativa)
+- [x] **Parte 6**: Quadro de Comparação (Canvas visual com Konva.js, persistência no banco, exportação criativa)
 - [ ] **Parte 7**: Agente do Quadro
 - [ ] **Parte 8**: Agente de Criativos
 - [ ] **Parte 9**: Conectores de Marketplace

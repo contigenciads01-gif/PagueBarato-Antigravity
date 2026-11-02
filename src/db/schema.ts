@@ -102,3 +102,57 @@ export type NovoProdutoPrecoReferencia = typeof produtoPrecosReferencia.$inferIn
 export type Calculo = typeof calculos.$inferSelect;
 export type NovoCalculo = typeof calculos.$inferInsert;
 export type ExecucaoAgente = typeof execucoesAgente.$inferSelect;
+
+export const quadros = sqliteTable("quadros", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  produtoId: integer("produto_id")
+    .notNull()
+    .references(() => produtos.id, { onDelete: "cascade" }),
+  nome: text("nome").notNull().default("Quadro Principal"),
+  principal: integer("principal").notNull().default(1),
+  arquivadoEm: text("arquivado_em"),
+  criadoEm: text("criado_em")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+  atualizadoEm: text("atualizado_em")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+});
+
+export const elementos = sqliteTable("elementos", {
+  id: text("id").primaryKey(), // UUID string
+  quadroId: integer("quadro_id")
+    .notNull()
+    .references(() => quadros.id, { onDelete: "cascade" }),
+  tipo: text("tipo").notNull(), // "CARD_PRECO" | "CARD_LOJA" | "IMAGEM" | "NOTA"
+  dadosJson: text("dados_json").notNull(),
+  x: integer("x").notNull().default(100),
+  y: integer("y").notNull().default(100),
+  largura: integer("largura").notNull().default(240),
+  altura: integer("altura").notNull().default(160),
+  zIndex: integer("z_index").notNull().default(1),
+  criadoEm: text("criado_em")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+  atualizadoEm: text("atualizado_em")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+});
+
+export const arquivos = sqliteTable("arquivos", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  caminho: text("caminho").notNull(),
+  mime: text("mime").notNull(),
+  tamanho: integer("tamanho").notNull(),
+  hash: text("hash").notNull(),
+  largura: integer("largura"),
+  altura: integer("altura"),
+  criadoEm: text("criado_em")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+});
+
+export type Quadro = typeof quadros.$inferSelect;
+export type Elemento = typeof elementos.$inferSelect;
+export type Arquivo = typeof arquivos.$inferSelect;
+
