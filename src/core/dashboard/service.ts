@@ -3,8 +3,10 @@ import { execucoesAgente, calculos, produtos } from "../../db/schema";
 import { desc, count } from "drizzle-orm";
 import { loadTaxConfig, loadFeesConfig, loadAppConfig } from "../config";
 import { listarTodasPendencias } from "../config/service";
+import { garantirMigracaoPronta } from "../../db/autoMigrate";
 
 export async function obterDadosVisaoGeral() {
+  await garantirMigracaoPronta();
   const tax = loadTaxConfig();
   const fees = loadFeesConfig();
   const app = loadAppConfig();

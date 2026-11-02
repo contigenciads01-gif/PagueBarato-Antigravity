@@ -5,10 +5,12 @@ import { loadFeesConfig, loadTaxConfig, loadAppConfig } from "../../config";
 import { EntradaMargem, EntradaMargemSchema, ResultadoMargem } from "./schema";
 import { calcularMargem, VERSAO_MOTOR_MARGEM } from "./engine";
 import { obterProdutoPorId } from "../../produtos/service";
+import { garantirMigracaoPronta } from "../../../db/autoMigrate";
 
 export async function executarCalculoMargem(
   entradaParcial: Partial<EntradaMargem> & { produtoId: number }
 ): Promise<ResultadoMargem> {
+  await garantirMigracaoPronta();
   const produto = await obterProdutoPorId(entradaParcial.produtoId);
   if (!produto) {
     throw new Error(`Produto #${entradaParcial.produtoId} não encontrado`);

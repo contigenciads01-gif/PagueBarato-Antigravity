@@ -6,6 +6,7 @@ import {
 } from "../../db/schema";
 import { eq, isNull, desc } from "drizzle-orm";
 import { ProdutoInput, ProdutoInputSchema } from "./schema";
+import { garantirMigracaoPronta } from "../../db/autoMigrate";
 
 export interface ListarProdutosFiltros {
   categoria?: string;
@@ -14,6 +15,7 @@ export interface ListarProdutosFiltros {
 }
 
 export async function criarProduto(dados: ProdutoInput) {
+  await garantirMigracaoPronta();
   const validado = ProdutoInputSchema.parse(dados);
 
   const [novoProd] = await db
@@ -156,6 +158,7 @@ export async function atualizarProduto(id: number, dados: ProdutoInput) {
 }
 
 export async function listarProdutos(filtros: ListarProdutosFiltros = {}) {
+  await garantirMigracaoPronta();
   let query = db.select().from(produtos).$dynamic();
 
   if (!filtros.mostrarArquivados) {

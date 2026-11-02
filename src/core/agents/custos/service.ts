@@ -5,10 +5,12 @@ import { encontrarFaixaAplicada } from "../../produtos/derived";
 import { loadTaxConfig, loadAppConfig } from "../../config";
 import { EntradaCustos, EntradaCustosSchema, ResultadoCustos } from "./schema";
 import { calcularCustos, VERSAO_MOTOR_CUSTOS } from "./engine";
+import { garantirMigracaoPronta } from "../../../db/autoMigrate";
 
 export async function executarCalculoCustos(
   entradaParcial: Partial<EntradaCustos> & { produtoId: number }
 ): Promise<ResultadoCustos> {
+  await garantirMigracaoPronta();
   const produto = await obterProdutoPorId(entradaParcial.produtoId);
   if (!produto) {
     throw new Error(`Produto #${entradaParcial.produtoId} não encontrado`);

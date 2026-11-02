@@ -5,6 +5,7 @@ import { calcularResumoConcorrentes } from "../produtos/derived";
 import { obterPrecoSugerido } from "../agents/margem/service";
 import { fromString, sub, div, mul, roundHalfUp, toStorageString } from "../money";
 import Decimal from "decimal.js";
+import { garantirMigracaoPronta } from "../../db/autoMigrate";
 
 export interface PrecoConcorrenteQuadro {
   id: string;
@@ -16,6 +17,7 @@ export interface PrecoConcorrenteQuadro {
 }
 
 export async function obterOuCriarQuadroPrincipal(produtoId: number) {
+  await garantirMigracaoPronta();
   const [existente] = await db
     .select()
     .from(quadros)
